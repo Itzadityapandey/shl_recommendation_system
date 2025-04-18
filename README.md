@@ -18,7 +18,7 @@ An intelligent recommender system that suggests the most relevant **SHL assessme
 ##  Architecture Overview
 
 
-![SHL Architecture](assets/architecture.png)
+![SHL Architecture](assets/assetsarchitecture.png)
 
 
 <!-- PLACEHOLDER: Paste your architecture diagram here (PNG, SVG, etc.) -->
