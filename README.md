@@ -3,7 +3,7 @@
 
 An intelligent recommender system that suggests the most relevant **SHL assessments** for a given job description or job posting URL. Powered by **Google Gemini** embeddings and built with **Streamlit** for an interactive experience.
 
----
+
 
 ## 🌟 Features
 
@@ -15,13 +15,17 @@ An intelligent recommender system that suggests the most relevant **SHL assessme
 ✅ Smart web scraping and classification for enriched SHL data  
 
 
-## 🖼️ Architecture Overview
+##  Architecture Overview
+
+
+![SHL Architecture](assets/architecture.png)
+
 
 <!-- PLACEHOLDER: Paste your architecture diagram here (PNG, SVG, etc.) -->
 
 > _Diagram shows the flow from user input → Gemini Embedding → Similarity Matching → Recommendations._
 
----
+
 
 ## 🚀 Quick Start
 
