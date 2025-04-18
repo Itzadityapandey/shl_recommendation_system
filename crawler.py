@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 
 # Gemini API configuration
-GEMINI_API_KEY = "AIzaSyA-VTq-1igK3uGQAO5cGi7GqkPueghXNdw"  # Replace with your API key from https://ai.google.dev/
+GEMINI_API_KEY = "XYZ"  # Replace with your API key from https://ai.google.dev/
 GEMINI_TEXT_MODEL = "gemini-2.0-flash"
 GEMINI_EMBEDDING_MODEL = "text-embedding-004"
 
