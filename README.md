@@ -17,10 +17,9 @@ An intelligent recommender system that suggests the most relevant **SHL assessme
 
 ##  Architecture Overview
 
-
-![SHL Architecture](assets/assetsarchitecture.png)
-
-
+<p align="center">
+  <img src="assets/assetsarchitecture.png" alt="SHL Architecture" width="600"/>
+</p>
 <!-- PLACEHOLDER: Paste your architecture diagram here (PNG, SVG, etc.) -->
 
 > _Diagram shows the flow from user input → Gemini Embedding → Similarity Matching → Recommendations._
