@@ -14,7 +14,6 @@ An intelligent recommender system that suggests the most relevant **SHL assessme
 ✅ Interactive and responsive Streamlit frontend  
 ✅ Smart web scraping and classification for enriched SHL data  
 
----
 
 ## 🖼️ Architecture Overview
 
@@ -48,7 +47,7 @@ GEMINI_API_KEY = "your_gemini_api_key"
 
 > ✅ Do **not** commit this file to GitHub. Add it to `.gitignore`.
 
----
+
 
 ## 🌐 Deployment on Streamlit Cloud
 
@@ -63,7 +62,7 @@ GEMINI_API_KEY = your_gemini_api_key
 
 5. Streamlit will automatically load this secret in your app using `st.secrets["GEMINI_API_KEY"]`.
 
----
+
 
 ## 🧩 Project Structure
 
@@ -78,7 +77,7 @@ GEMINI_API_KEY = your_gemini_api_key
 └── README.md               # This file
 ```
 
----
+
 
 ## 🛠️ How it Works
 
@@ -88,7 +87,7 @@ GEMINI_API_KEY = your_gemini_api_key
 4. Cosine similarity is computed
 5. Top N assessments are recommended with links & metadata
 
----
+
 
 ## 📉 Example Assessment Output
 
@@ -99,7 +98,7 @@ GEMINI_API_KEY = your_gemini_api_key
    [Link to Assessment](https://www.shl.com/solutions/products/verify-numerical/)
 ```
 
----
+
 
 ## 📦 Crawling and Generating the Dataset
 
@@ -123,19 +122,3 @@ This will:
 - 📊 scikit-learn (cosine similarity)
 - 🕸️ Streamlit (frontend UI)
 - 🐼 pandas, numpy
-
----
-
-## 📄 License
-
-This project is provided for educational and research purposes. Customize it for your own learning goals.
-
----
-
-Let me know if you want:
-
-- A visual **architecture diagram** generated based on your code  
-- A **PowerPoint-style summary** of your project  
-- A **portfolio PDF** based on this `README.md`  
-
-I can build those out too!
