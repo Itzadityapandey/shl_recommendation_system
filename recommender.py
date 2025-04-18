@@ -7,8 +7,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import re
 
-# Gemini API configuration
-GEMINI_API_KEY = "AIzaSyAvO0kWY3k9F3mnRihe4A1gAJaLGxtPVHY" # Replace with your API key from https://ai.google.dev/
+import streamlit as st
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+ # Replace with your API key from https://ai.google.dev/
 GEMINI_EMBEDDING_MODEL = "text-embedding-004"
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
