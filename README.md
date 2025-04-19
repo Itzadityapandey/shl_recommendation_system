@@ -28,8 +28,9 @@ An intelligent system that recommends relevant SHL assessments based on a job de
 
 ## Architecture
 
-![Architecture Diagram](assets/assetsarchitecture.png)
-
+<p align="center">
+  <img src="assets/assetsarchitecture.png" alt="SHL Architecture" width="300"/>
+</p>
 The system follows a modular design:
 - Input layer (URL or text)
 - Embedding generation via Gemini API
