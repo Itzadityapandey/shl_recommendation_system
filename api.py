@@ -1,7 +1,13 @@
 from flask import Flask, request, jsonify
-from recommenderRender import recommend_assessments  # Updated import
+from recommenderRender import recommend_assessments
+import os
 
 app = Flask(__name__)
+
+# Health check route
+@app.route('/', methods=['GET'])
+def health_check():
+    return jsonify({"status": "healthy"}), 200
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
@@ -28,4 +34,5 @@ def recommend():
     return jsonify({"error": "No recommendations found"}), 404
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    port = int(os.getenv("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
