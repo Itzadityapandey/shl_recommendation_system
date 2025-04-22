@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from recommenderRender import recommend_assessments
+from recommender import recommend_assessments  # Adjusted import to match your file
 import os
 
 app = Flask(__name__)
@@ -18,13 +18,18 @@ def recommend():
         return jsonify({"error": "Job description or URL is required"}), 400
     recommendations = recommend_assessments(job_description=job_description, job_url=job_url, top_n=10)
     if recommendations:
+        # Construct the response with explicit key order
         json_output = {
             "recommended_assessments": [
                 {
-                    "url": rec["url"],
+                    "url": rec["url"],  # First field
                     "adaptive_support": rec["adaptive_support"],
                     "description": rec["description"],
-                    "duration": int(rec["duration"].split()[0]) if isinstance(rec["duration"], str) and "minutes" in rec["duration"] else (int(rec["duration"]) if rec["duration"].isdigit() else 0),
+                    "duration": (
+                        int(rec["duration"].split()[0])
+                        if isinstance(rec["duration"], str) and "minutes" in rec["duration"].lower()
+                        else 0
+                    ),
                     "remote_support": rec["remote_support"],
                     "test_type": [rec["test_type"]] if not isinstance(rec["test_type"], list) else rec["test_type"]
                 } for rec in recommendations
