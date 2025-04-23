@@ -76,34 +76,70 @@ GEMINI_API_KEY = "your_gemini_api_key"
 
 
 
-## Output Format
+## 🧪 API Testing & Usage
 
-The API returns a ranked list of relevant SHL assessments:
+In addition to the Streamlit interface, the system provides a RESTful API for integration into external workflows.
+
+### 🔍 Health Check
+
+**GET**  
+`https://shl-recommendation-system-6d1j.onrender.com/`
+
+**Response:**
+
+```json
+{ "status": "healthy" }
+```
+
+### 🧠 Recommendation Endpoint
+
+**POST**  
+`https://shl-recommendation-system-6d1j.onrender.com/recommend`
+
+#### Example Input (JSON)
+
+```json
+{
+  "job_description": "We are looking for a data analyst with strong SQL and Python skills."
+}
+```
+
+or
+
+```json
+{
+  "job_url": "https://example.com/job-posting"
+}
+```
+
+#### Sample Output
 
 ```json
 [
   {
-    "Assessment Name": "Java Programming Test",
+    "Assessment Name": "Data Analysis Test",
     "URL": "https://www.shl.com/...",
     "Remote Testing Support": "Yes",
     "Adaptive/IRT Support": "Yes",
-    "Duration": "30 mins",
+    "Duration": "40 mins",
     "Test Type": "Cognitive"
   }
 ]
 ```
 
+You can test the API via [Postman](https://www.postman.com/) or any REST client.
 
+---
 
-## Error Handling
+## 🧯 Error Handling
 
-| Scenario               | Action                          |
-|------------------------|----------------------------------|
-| Missing API key        | User prompt to set credentials   |
-| Invalid URL            | Validation error message         |
-| No input provided      | Input prompt shown               |
-| Gemini API failure     | Graceful error with fallback     |
-| No recommendations     | Informative user message         |
+| Scenario               | Response                          |
+|------------------------|-----------------------------------|
+| Missing API key        | Instruction to set credentials    |
+| No input provided      | Prompt requesting input           |
+| Invalid job URL        | Validation error                  |
+| Gemini API failure     | Graceful fallback or error shown  |
+| No matching assessments| Friendly message displayed        |
 
 ---
 
@@ -122,19 +158,6 @@ The API returns a ranked list of relevant SHL assessments:
 ```
 
 
-
-## Updating the Dataset
-
-To regenerate `shl_assessments.csv`:
-
-```bash
-python crawler.py
-```
-
-This will:
-- Scrape assessment details from the SHL website
-- Generate embeddings using Gemini
-- Store results in CSV format
 
 
 
