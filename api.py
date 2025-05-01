@@ -18,23 +18,23 @@ def recommend():
         return jsonify({"error": "Job description or URL is required"}), 400
     recommendations = recommend_assessments(job_description=job_description, job_url=job_url, top_n=10)
     if recommendations:
-        # Construct the response with explicit key order
-        json_output = {
-            "recommended_assessments": [
-                {
-                    "url": rec["url"],  # First field
-                    "adaptive_support": rec["adaptive_support"],
-                    "description": rec["description"],
-                    "duration": (
-                        int(rec["duration"].split()[0])
-                        if isinstance(rec["duration"], str) and "minutes" in rec["duration"].lower()
-                        else 0
-                    ),
-                    "remote_support": rec["remote_support"],
-                    "test_type": [rec["test_type"]] if not isinstance(rec["test_type"], list) else rec["test_type"]
-                } for rec in recommendations
-            ]
-        }
+        # Construct each recommendation with explicit key order
+        ordered_recommendations = [
+            {
+                "url": rec["url"],  # First field
+                "adaptive_support": rec["adaptive_support"].capitalize(),
+                "description": rec["description"],
+                "duration": (
+                    int(rec["duration"].split()[0])
+                    if isinstance(rec["duration"], str) and "minutes" in rec["duration"].lower()
+                    else 0
+                ),
+                "remote_support": rec["remote_support"].capitalize(),
+                "test_type": [rec["test_type"]] if not isinstance(rec["test_type"], list) else rec["test_type"]
+            } for rec in recommendations
+        ]
+        # Construct the final response with explicit key order
+        json_output = {"recommended_assessments": ordered_recommendations}
         return jsonify(json_output)
     return jsonify({"error": "No recommendations found"}), 404
 
