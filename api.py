@@ -1,6 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 from recommenderRender import recommend_assessments  
 import os
+import json
 
 app = Flask(__name__)
 
@@ -33,9 +34,12 @@ def recommend():
                 "test_type": [rec["test_type"]] if not isinstance(rec["test_type"], list) else rec["test_type"]
             } for rec in recommendations
         ]
-        # Construct the final response with explicit key order
+        # Construct the final response dictionary
         json_output = {"recommended_assessments": ordered_recommendations}
-        return jsonify(json_output)
+        
+        # Manually serialize to JSON to ensure key order is preserved
+        json_str = json.dumps(json_output, ensure_ascii=False)
+        return Response(json_str, mimetype='application/json')
     return jsonify({"error": "No recommendations found"}), 404
 
 if __name__ == '__main__':
